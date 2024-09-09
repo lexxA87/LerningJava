@@ -1,3 +1,4 @@
+import java.io.Console;
 import java.util.Scanner;
 
 public class TestOfTread {
@@ -22,7 +23,7 @@ class MyThreadRunning extends Thread{
     @Override
     public void run() {
         while (running){
-            System.out.println("Hello from MyThread1 n: " + i);
+            System.out.println(ConsoleColors.RED + "Hello from MyThread1 n: " + i + ConsoleColors.RESET);
             try {
                 Thread.sleep(1000);
                 i++;
@@ -41,7 +42,7 @@ class MyThread2 implements Runnable{
     @Override
     public void run() {
         for (int i = 0; i < 100 ; i++){
-            System.out.println("Hello from MyThread2 n: " + i);
+            System.out.println(ConsoleColors.GREEN + "Hello from MyThread2 n: " + i + ConsoleColors.RESET);
         }
     }
 }
