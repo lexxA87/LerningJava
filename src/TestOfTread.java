@@ -1,13 +1,36 @@
-import java.io.Console;
+
 import java.util.Scanner;
 
 public class TestOfTread {
     public static void main(String[] args) throws InterruptedException {
-        Thread myThread2 = new Thread(new MyThread2());
+        //Thread myThread2 = new Thread(new MyThread2());
         MyThreadRunning myThreadRunning = new MyThreadRunning();
         myThreadRunning.start();
-        Thread.sleep(2000);
-        myThread2.start();
+        //Thread.sleep(2000);
+        //myThread2.start();
+
+        while (myThreadRunning.getI() < 51) {
+            Thread.sleep(1000);
+            //System.out.println("While loop");
+        switch (myThreadRunning.getI()){
+            case 10:
+                System.out.println( ConsoleColors.CYAN + "Already 10!!!" + ConsoleColors.RESET);
+                break;
+            case 20:
+                System.out.println( ConsoleColors.CYAN + "Already 20!!!" + ConsoleColors.RESET);
+                break;
+            case 30:
+                System.out.println( ConsoleColors.CYAN + "Already 30!!!" + ConsoleColors.RESET);
+                break;
+            case 40:
+                System.out.println( ConsoleColors.CYAN + "Already 40!!!" + ConsoleColors.RESET);
+                break;
+            case 50:
+                System.out.println( ConsoleColors.CYAN + "Already 50!!!" + ConsoleColors.RESET);
+                break;
+        }
+        }
+
 
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
@@ -19,7 +42,7 @@ public class TestOfTread {
 
 class MyThreadRunning extends Thread{
     private volatile boolean running = true;
-    private int i = 0;
+    private volatile int i = 0;
     @Override
     public void run() {
         while (running){
@@ -31,6 +54,10 @@ class MyThreadRunning extends Thread{
                 throw new RuntimeException(e);
             }
         }
+    }
+
+    public int getI() {
+        return i;
     }
 
     public void shoutDown(){
