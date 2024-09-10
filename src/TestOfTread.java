@@ -1,4 +1,6 @@
 
+import ConsoleColors.ConsoleColors;
+
 import java.util.Scanner;
 
 public class TestOfTread {
